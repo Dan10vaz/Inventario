@@ -8,7 +8,7 @@ use Livewire\Component;
 class Register extends Component
 {
 
-    public $name, $last_name, $second_last_name, $email, $password;
+    public $name, $last_name, $second_last_name, $email, $password, $error;
 
     protected $rules = [
         'name' => 'required|max:30|min:3',
@@ -31,6 +31,11 @@ class Register extends Component
             'password' => bcrypt($this->password),
         ]);
 
+        auth()->attempt([
+            'email' => $this->email,
+            'password' => $this->password,
+        ]);
+
         $this->reset([
             'name',
             'last_name',
@@ -39,7 +44,7 @@ class Register extends Component
             'password'
         ]);
 
-        redirect()->route('capturer');
+        return redirect()->route('capturer');
     }
 
 

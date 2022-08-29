@@ -1,7 +1,8 @@
 <div>
     {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
-    @include('landing-page.navAuth')
+    @include('landing-page.nav')
     <div class="bg-green-50 h-screen">
+        <h1 class="text-center font-bold text-2xl pt-5">Bienvenido al sistema: {{auth()->user()->name}}</h1>
         <div class="pt-10 lg:pt-5 mx-auto ">
             <div class="grid grid-cols-1 lg:grid-cols-3 mt-5">
                 <div class="text-center text-green-700 font-bold text-4xl mt-44">

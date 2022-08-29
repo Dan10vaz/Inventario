@@ -1,4 +1,4 @@
 <div>
-    @include('landing-page.navCapturer')
+    @include('landing-page.nav')
     @include('tables.tableAdmin')
 </div>

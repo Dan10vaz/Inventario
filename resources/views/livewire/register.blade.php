@@ -1,6 +1,6 @@
 <div>
     {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
-    @include('landing-page.navAuth')
+    @include('landing-page.nav')
     <div class="bg-green-50 h-screen">
         <div class="pt-10 lg:pt-5 mx-auto ">
             <div class="grid grid-cols-1 lg:grid-cols-3 mt-5">

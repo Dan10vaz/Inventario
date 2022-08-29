@@ -27,7 +27,7 @@ Route::get('/register', function () {
 
 Route::get('/capturer', function () {
     return view('form.formCapurer');
-})->name('capturer');
+})->name('capturer')->middleware('auth');
 
 Route::get('/admin', function () {
     return view('admin.pageAdmin');

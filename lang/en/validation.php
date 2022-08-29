@@ -168,6 +168,13 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name' => 'nombre',
+        'last_name' => 'apellido paterno',
+        'second_last_name' => 'apellido materno',
+        'email' => 'correo',
+        'password' => 'contrasena'
+
+    ],
 
 ];

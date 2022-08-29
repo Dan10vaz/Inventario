@@ -1,5 +1,5 @@
 @extends('layout.app')
-@section('title', 'Registrate')
+@section('title', 'Bienvenido')
 @section('content')
-@livewire('login')
+@livewire('capturer')
 @endsection

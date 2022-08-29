@@ -1,0 +1,41 @@
+<div>
+    {{-- A good traveler has no fixed plans and is not intent upon arriving. --}}
+    @include('landing-page.navAuth')
+    <div class="bg-green-50 h-screen">
+        <div class="pt-10 lg:pt-5 mx-auto ">
+            <div class="grid grid-cols-1 lg:grid-cols-3 mt-5">
+                <div class="text-center text-green-700 font-bold text-4xl mt-44">
+                    <h1>Inicia Sesion y ve la actividad de tu negocio</h1>
+                </div>
+                <div class="bg-white py-8 px-4 shadow-xl rounded-lg mt-10 lg:mt-0 m-5 md:m-40 lg:m-0">
+                    <div>
+                        <label class="block text-base text-black mb-2 font-bold">Correo:</label>
+                        <input wire:model="email" type="email" placeholder="Ej. dcva9565@hotmail.com"
+                            class=" w-full px-3 py-2 uppercase border border-gray-400 rounded-md placeholder-gray-600 text-center">
+                        @error('email')
+                        <span class="block text-sm font-medium text-red-500">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div>
+                        <label for="password" class="block text-base text-black mb-2 font-bold">Contrasena:</label>
+                        <input wire:model="password" type="password" placeholder="Tu contrasena"
+                            class=" w-full px-3 py-2 uppercase border border-gray-400 rounded-md placeholder-gray-600 text-center">
+                        @error('password')
+                        <span class="block text-sm font-medium text-red-500">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="flex items-center justify-between pb-5">
+                        <a href="{{route('register')}}" class="text-gray-500 text-sm hover:text-green-400">No tienes cuenta? Crea una</a>
+                    </div>
+                    <button wire:click="save"
+                        class="w-full bg-green-500 hover:bg-green-700 text-white font-bold cursor-pointer py-2 rounded-md shadow-2xl">
+                        Crear Cuenta
+                    </button>
+                </div>
+                <div class="text-center text-green-700 font-bold text-4xl mt-44">
+                    <h1>Tus activos al alcance de tu mano</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

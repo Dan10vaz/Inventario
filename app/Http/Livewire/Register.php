@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
-use App\Models\UsersRegister;
 use Livewire\Component;
 
 class Register extends Component
@@ -31,7 +30,18 @@ class Register extends Component
             'email' => $this->email,
             'password' => bcrypt($this->password),
         ]);
+
+        $this->reset([
+            'name',
+            'last_name',
+            'second_last_name',
+            'email',
+            'password'
+        ]);
+
+        redirect()->route('capturer');
     }
+
 
     public function render()
     {

@@ -5,21 +5,21 @@
 					<div class="flex space-x-7">
 						<div>
 							<!-- Website Logo -->
-							<a href="#" class="flex items-center py-4 px-2">
+							<a href="{{route('index')}}" class="flex items-center py-4 px-2">
 								<span class="font-semibold text-2xl text-green-500">Inventario Facil</span>
 							</a>
 						</div>
 						<!-- Primary Navbar items -->
 						<div class="hidden md:flex items-center space-x-1">
-							<a href="" class="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold ">Inicio</a>
-							<a href="" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Servicios</a>
-							<a href="" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Contacto</a>
+                            <a href="{{route('index')}}" class="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold ">Inicio</a>
+							<a href="{{route('index')}}" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Servicios</a>
+							<a href="{{route('index')}}" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Contacto</a>
 						</div>
 					</div>
 					<!-- Secondary Navbar items -->
 					<div class="hidden md:flex items-center space-x-3 ">
-						<a href="{{route('login')}}" class="py-2 px-5 font-medium text-gray-500 rounded-lg border border-green-500 hover:bg-green-500 hover:text-white transition duration-300">Inicia Sesion</a>
-						<a href="{{route('register')}}" class="py-2 px-5 font-medium text-white bg-green-500 rounded-lg hover:bg-green-700 transition duration-300">Registrate</a>
+						<a href="{{route('login')}}" class="py-2 px-5 font-medium text-gray-500 rounded-lg hover:bg-green-500 hover:text-white transition duration-300">Log In</a>
+						<a href="{{route('register')}}" class="py-2 px-5 font-medium text-white bg-green-500 rounded-lg hover:bg-green-700 transition duration-300">Sign Up</a>
 					</div>
 					<!-- Mobile menu button -->
 					<div class="md:hidden flex items-center">

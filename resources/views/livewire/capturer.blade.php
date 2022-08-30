@@ -4,65 +4,70 @@
     <div class="bg-green-50 h-screen">
         <h1 class="text-center font-bold text-2xl pt-5">Bienvenido al sistema: {{auth()->user()->name}}</h1>
         <div class="pt-10 lg:pt-5 mx-auto ">
-            <div class="grid grid-cols-1 lg:grid-cols-3 mt-5">
-                <div class="text-center text-green-700 font-bold text-4xl mt-44">
-                    <h1>Registrate y comienza a dar soluciones a tu negocio</h1>
-                </div>
-                <div class="bg-white py-8 px-4 shadow-xl rounded-lg mt-10 lg:mt-0 m-5 md:m-40 lg:m-0">
+            <div class="px-10">
+                <div class="bg-white py-8 px-4 shadow-xl rounded-lg mt-10 lg:mt-0 m-5 md:m-40 lg:m-0 grid grid-cols-1 lg:grid-cols-3 gap-5">
                     <div>
-                        <label for="name" class="block text-base text-black mb-2 font-bold">Nombre:</label>
-                        <input wire:model="name" name="name" id="name" type="text" placeholder="Ej. Daniel Vazquez"
+                        <label for="name_product" class="block text-base text-black mb-2 font-bold">Nombre del Producto:</label>
+                        <input wire:model="name_product" name="name_product" id="name_product" type="text" placeholder="Ej. Computadora"
                             class=" w-full px-3 py-2 border border-gray-400 rounded-md placeholder-gray-600 text-center">
-                        @error('name')
+                        @error('name_product')
                         <span class="block text-sm font-medium text-red-500">{{ $message }}</span>
                         @enderror
                     </div>
                     <div>
-                        <label for="last_name" class="block text-base text-black mb-2 font-bold">Apellido
-                            Paterno:</label>
-                        <input wire:model="last_name" name="last_name" id="last_name" type="text" placeholder="Ej. Daniel Vazquez"
+                        <label for="description" class="block text-base text-black mb-2 font-bold">Descripcion:</label>
+                        <input wire:model="description" name="description" id="description" type="text" placeholder="Ej. Daniel Vazquez"
                             class=" w-full px-3 py-2  border border-gray-400 rounded-md placeholder-gray-600 text-center">
-                        @error('last_name')
+                        @error('description')
                         <span class="block text-sm font-medium text-red-500">{{ $message }}</span>
                         @enderror
                     </div>
                     <div>
-                        <label for="second_last_name" class="block text-base text-black mb-2 font-bold">Apellido
-                            Materno:</label>
-                        <input wire:model="second_last_name" name="second_last_name" id="second_last_name" type="text"
+                        <label for="countries" class="block mb-2 text-base text-black font-bold">Selecciona una opcion</label>
+                        <select class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-green-100 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" name="category" id="category">
+                            @foreach ($categoryData as $category )
+                                <option value="{{ $category->id}}">{{$category->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div>
+                        <label for="category" class="block text-base text-black mb-2 font-bold">Categoria:</label>
+                        <input wire:model="category" name="category" id="category" type="text"
                             placeholder="Ej. Daniel Vazquez"
                             class=" w-full px-3 py-2 border border-gray-400 rounded-md placeholder-gray-600 text-center">
-                        @error('second_last_name')
+                        @error('category')
                         <span class="block text-sm font-medium text-red-500">{{ $message }}</span>
                         @enderror
                     </div>
                     <div>
-                        <label class="block text-base text-black mb-2 font-bold">Correo:</label>
-                        <input wire:model="email" type="email" placeholder="Ej. dcva9565@hotmail.com"
+                        <label class="block text-base text-black mb-2 font-bold">Sucursal:</label>
+                        <input wire:model="office" type="office" placeholder="Ej. dcva9565@hotmail.com"
                             class=" w-full px-3 py-2 border border-gray-400 rounded-md placeholder-gray-600 text-center">
-                        @error('email')
+                        @error('office')
                         <span class="block text-sm font-medium text-red-500">{{ $message }}</span>
                         @enderror
                     </div>
                     <div>
-                        <label for="password" class="block text-base text-black mb-2 font-bold">Contrasena:</label>
-                        <input wire:model="password" type="password" placeholder="Tu contrasena"
+                        <label for="price" class="block text-base text-black mb-2 font-bold">Precio:</label>
+                        <input wire:model="price" name="price" id="price" type="password" placeholder="Tu contrasena"
                             class=" w-full px-3 py-2 border border-gray-400 rounded-md placeholder-gray-600 text-center">
-                        @error('password')
+                        @error('price')
                         <span class="block text-sm font-medium text-red-500">{{ $message }}</span>
                         @enderror
                     </div>
-                    <div class="flex items-center justify-between pb-5">
-                        <a href="{{route('login')}}" class="text-gray-500 text-sm hover:text-green-400">Ya tienes cuenta? Inicia
-                            Sesión</a>
+                    <div>
+                        <label for="date_purchase" class="block text-base text-black mb-2 font-bold">Fecha de compra:</label>
+                        <input wire:model="date_purchase" name="date_purchase" id="date_purchase" type="password" placeholder="Tu contrasena"
+                            class=" w-full px-3 py-2 border border-gray-400 rounded-md placeholder-gray-600 text-center">
+                        @error('date_purchase')
+                        <span class="block text-sm font-medium text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
-                    <button wire:click="save"
+
+                    <button wire:click="register"
                         class="w-full bg-green-500 hover:bg-green-700 text-white font-bold cursor-pointer py-2 rounded-md shadow-2xl">
-                        Crear Cuenta
+                        Registrar
                     </button>
-                </div>
-                <div class="text-center text-green-700 font-bold text-4xl mt-44">
-                    <h1>Es momento de que intentes algo diferente</h1>
                 </div>
             </div>
         </div>

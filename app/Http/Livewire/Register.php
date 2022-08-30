@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Category;
 use App\Models\User;
 use Livewire\Component;
 
@@ -46,6 +47,7 @@ class Register extends Component
 
         return redirect()->route('capturer');
     }
+
 
 
     public function render()

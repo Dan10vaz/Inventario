@@ -6,7 +6,6 @@ use App\Models\Category;
 use App\Models\Office;
 use App\Models\Product;
 use Livewire\Component;
-use Illuminate\Auth\Middleware\Authenticate;
 
 class Capturer extends Component
 {
@@ -42,10 +41,6 @@ class Capturer extends Component
             'price',
             'date_purchase',
         ]);
-    }
-    public function category()
-    {
-        $category = Category::all();
     }
 
     public function render()

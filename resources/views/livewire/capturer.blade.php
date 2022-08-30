@@ -2,7 +2,7 @@
     {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
     @include('landing-page.nav')
     <div class="bg-green-50 h-screen">
-        <h1 class="text-center font-bold text-2xl pt-5">Bienvenido al sistema: {{auth()->user()->name}}</h1>
+        <h1 class="text-center font-bold text-2xl pt-5">Bienvenido al sistema: {{auth()->user()->name}} {{auth()->user()->last_name}}</h1>
         <div class="pt-10 lg:pt-5 mx-auto ">
             <div class="px-10">
                 <div class="bg-white py-8 px-4 shadow-xl rounded-lg mt-10 lg:mt-0 m-5 md:m-40 lg:m-0 grid grid-cols-1 lg:grid-cols-4 gap-5">
@@ -27,7 +27,7 @@
                         <select class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-green-50 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" name="category" wire:model="category" id="category">
                             <option value="" selected hidden>Selecciona opción</option>
                             @foreach ($categoryData as $category )
-                                <option class="text-center" value="{{ $category->id}}">{{$category->name}}</option>
+                                <option class="text-center" value="{{ $category->name}}">{{$category->name}}</option>
                             @endforeach
                         </select>
                         @error('category')
@@ -39,7 +39,7 @@
                         <select class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-green-50 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" name="office" wire:model="office" id="office">
                             <option value="" selected hidden>Selecciona opción</option>
                             @foreach ($officeData as $office )
-                                <option class="text-center" value="{{ $office->id}}">{{$office->name}}</option>
+                                <option class="text-center" value="{{ $office->name}}">{{$office->name}}</option>
                             @endforeach
                         </select>
                         @error('office')

@@ -3,8 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use Illuminate\Contracts\Validation\Factory as ValidationFactory;
-use Illuminate\Support\Facades\Auth;
+
 
 class Login extends Component
 {

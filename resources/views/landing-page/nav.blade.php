@@ -10,6 +10,17 @@
                     </a>
                 </div>
                 <!-- Primary Navbar items -->
+                @auth
+                    <div class="hidden md:flex items-center space-x-1">
+                    @can('admin')
+                        <a href="{{route('admin')}}"
+                        class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Tabla de productos</a>
+                    @endcan
+                    <a href="{{route('capturer')}}"
+                        class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Registro de Productos</a>
+                </div>
+                @endauth
+                @guest()
                 <div class="hidden md:flex items-center space-x-1">
                     <a href="" class="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold ">Inicio</a>
                     <a href=""
@@ -17,12 +28,21 @@
                     <a href=""
                         class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Contacto</a>
                 </div>
+                @endguest
+
             </div>
             <!-- Secondary Navbar items -->
             @auth
             <div class="hidden md:flex items-center space-x-3 ">
-                <p class="font-bold">Hola: {{auth()->user()->name}}</p>
-                <button wire:click='logout' class="py-2 px-5 font-medium text-white bg-red-500 rounded-lg hover:bg-red-700 transition duration-300">Cerrar Sesion</button>
+                @role('admin')
+                    <p class="font-bold text-lg text-green-600">Administrador: <span>{{auth()->user()->name}}</span></p>
+                @endrole
+                @role('capturer')
+                    <p class="font-bold text-lg text-green-600">Capturista: <span>{{auth()->user()->name}}</span></p>
+                @endrole
+                <button wire:click='logout'
+                    class="py-2 px-5 font-medium text-white bg-red-500 rounded-lg hover:bg-red-700 transition duration-300">Cerrar
+                    Sesion</button>
             </div>
             @endauth
 

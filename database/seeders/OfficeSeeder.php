@@ -15,7 +15,7 @@ class OfficeSeeder extends Seeder
      */
     public function run()
     {
-        //
+        dump('Registrando sucursales');
         $cuernavaca = Office::create([
             'name' => 'Cuernavaca',
         ]);

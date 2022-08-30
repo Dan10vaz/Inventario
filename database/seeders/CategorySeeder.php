@@ -15,7 +15,7 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        //
+        dump('Registrando categorias');
         $electronics = Category::create([
             'name' => 'Electronica',
         ]);

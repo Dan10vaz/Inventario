@@ -24,13 +24,14 @@ class Register extends Component
     {
 
         $this->validate();
-        User::create([
+        $user = User::create([
             'name' => $this->name,
             'last_name' => $this->last_name,
             'second_last_name' => $this->second_last_name,
             'email' => $this->email,
             'password' => bcrypt($this->password),
         ]);
+        $user->assignRole('capturer');
 
         auth()->attempt([
             'email' => $this->email,

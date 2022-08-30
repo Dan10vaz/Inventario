@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Category;
+use App\Models\Office;
 use App\Models\Product;
 use Livewire\Component;
 use Illuminate\Auth\Middleware\Authenticate;
@@ -12,18 +13,12 @@ class Capturer extends Component
     public $name;
     public $name_product, $description, $category, $office, $price, $date_purchase;
 
-    public function logout()
-    {
-        auth()->logout();
-        return redirect()->route('login');
-    }
-
     protected $rules = [
         'name_product' => 'required|max:30',
         'description' => 'required|max:100',
         'category' => 'required',
         'office' => 'required',
-        'price' => 'required|numeric|max:5',
+        'price' => 'required|numeric|digits_between:1,5',
         'date_purchase' => 'required',
     ];
 
@@ -56,6 +51,13 @@ class Capturer extends Component
     public function render()
     {
         $categoryData = Category::all();
-        return view('livewire.capturer')->with('categoryData', $categoryData);
+        $officeData = Office::all();
+        return view('livewire.capturer')->with('categoryData', $categoryData)->with('officeData', $officeData);
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+        return redirect()->route('login');
     }
 }

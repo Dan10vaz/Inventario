@@ -1,34 +1,23 @@
 <?php
 
+
+use App\Http\Livewire\IndexComponent;
+use App\Http\Livewire\Auth\Login;
+use App\Http\Livewire\Auth\Register;
+use App\Http\Livewire\Crud\AddProductComponent;
+use App\Http\Livewire\Crud\EditProductComponent;
+use App\Http\Livewire\Crud\IndexComponent as CrudIndexComponent;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/', IndexComponent::class)->name('index');
 
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
+Route::get('/login', Login::class)->name('login');
 
-Route::get('/register', function () {
-    return view('auth.register');
-})->name('register');
+Route::get('/register-user', Register::class)->name('register');
 
-Route::get('/capturer', function () {
-    return view('capturer.formCapurer');
-})->name('capturer')->middleware('auth');
+Route::get('/capturer-products', AddProductComponent::class)->name('capturer')->middleware('auth');
 
-Route::get('/admin', function () {
-    return view('admin.pageAdmin');
-})->name('admin')->middleware('auth')->middleware('can:admin');
+Route::get('/edit-product/{id}', EditProductComponent::class)->name('edit')->middleware('auth')->middleware('can:admin');
+
+Route::get('/admin-products', CrudIndexComponent::class)->name('admin')->middleware('auth')->middleware('can:admin');

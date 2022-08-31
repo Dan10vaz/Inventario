@@ -16,5 +16,7 @@ class Product extends Model
         'office',
         'price',
         'date_purchase',
+        'state',
+        'comment'
     ];
 }

@@ -1,6 +1,6 @@
 <div>
     @can('admin')
-    @include('landing-page.nav')
+    @include('landinpage.nav')
     <h1 class="text-center font-bold text-2xl text-green-400 mt-5">Bandeja de productos</h1>
     <div class="overflow-x-auto relative shadow-md sm:rounded-lg px-5 mt-5">
         <table class="w-full text-sm text-left">
@@ -39,8 +39,9 @@
                         {{$product->office}}
                     </td>
                     <td class="py-4 px-2">
-                        <button class="text-white bg-blue-500 hover:bg-blue-700 py-1 px-2 rounded-lg">Editar</button>
-                        <button
+                        <a href="{{route('edit',['id'=>$product->id])}}" class="text-white font-bold bg-blue-500 hover:bg-blue-700 py-1 px-2 rounded-lg">Editar</a>
+                        {{-- <button class="text-white bg-blue-500 hover:bg-blue-700 py-1 px-2 rounded-lg">Editar</button> --}}
+                        <button wire:click="delete({{$product->id}})"
                             class="text-white bg-red-500 hover:bg-red-700 py-1 px-2 ml-2 rounded-lg">Eliminar</button>
                     </td>
                 </tr>
@@ -49,5 +50,4 @@
         </table>
     </div>
     @endcan
-
 </div>

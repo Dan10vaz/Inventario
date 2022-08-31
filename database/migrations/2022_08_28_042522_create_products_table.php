@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('office');
             $table->string('price', 5);
             $table->string('date_purchase');
+            $table->string('state');
+            $table->string('comment', 100)->nullable();
             $table->timestamps();
         });
     }

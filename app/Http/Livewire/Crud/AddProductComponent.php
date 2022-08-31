@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Crud;
 
 use App\Models\Category;
 use App\Models\Office;
 use App\Models\Product;
 use Livewire\Component;
 
-class Capturer extends Component
+class AddProductComponent extends Component
 {
     public $name;
     public $name_product, $description, $category, $office, $price, $date_purchase;
+    public $state = 'Abierto';
 
     protected $rules = [
         'name_product' => 'required|max:30',
@@ -31,6 +32,7 @@ class Capturer extends Component
             'office' => $this->office,
             'price' => $this->price,
             'date_purchase' => $this->date_purchase,
+            'state' => $this->state,
         ]);
 
         $this->reset([
@@ -47,7 +49,7 @@ class Capturer extends Component
     {
         $categoryData = Category::all();
         $officeData = Office::all();
-        return view('livewire.capturer')->with('categoryData', $categoryData)->with('officeData', $officeData);
+        return view('livewire.crud.add-product-component')->with('categoryData', $categoryData)->with('officeData', $officeData)->layout('livewire.layouts.base');
     }
 
     public function logout()

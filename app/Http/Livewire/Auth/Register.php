@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Auth;
 
-use App\Models\Category;
 use App\Models\User;
 use Livewire\Component;
 
 class Register extends Component
 {
-
     public $name, $last_name, $second_last_name, $email, $password, $error;
 
     protected $rules = [
@@ -48,11 +46,8 @@ class Register extends Component
 
         return redirect()->route('capturer');
     }
-
-
-
     public function render()
     {
-        return view('livewire.register');
+        return view('livewire.auth.register')->layout('livewire.layouts.base');
     }
 }

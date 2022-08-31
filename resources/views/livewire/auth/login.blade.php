@@ -1,6 +1,5 @@
 <div>
-    {{-- A good traveler has no fixed plans and is not intent upon arriving. --}}
-    @include('landing-page.nav')
+    @include('landinpage.nav')
     <div class="bg-green-50 h-screen">
         <div class="pt-10 lg:pt-5 mx-auto ">
             <div class="grid grid-cols-1 lg:grid-cols-3 mt-5">

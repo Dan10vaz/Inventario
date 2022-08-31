@@ -4,16 +4,16 @@
         <h1 class="text-center font-bold text-2xl pt-5">Bienvenido al sistema: {{auth()->user()->name}} {{auth()->user()->last_name}}</h1>
         <div class="pt-10 lg:pt-5 mx-auto ">
             <div class="px-10">
-                <div class="bg-white py-8 px-4 shadow-xl rounded-lg mt-10 lg:mt-0 m-5 md:m-40 lg:m-0 grid grid-cols-1 lg:grid-cols-4 gap-5">
-                    <div>
+                <div class="bg-white py-8 px-4 shadow-xl rounded-lg mt-10 lg:mt-0 m-5 md:m-10 lg:m-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-5">
+                    <div class="col-start-1 col-span-1">
                         <label for="name_product" class="block text-base text-black mb-2 font-bold">Nombre del Producto:</label>
                         <input wire:model="name_product" name="name_product" id="name_product" type="text" placeholder="Ej. Computadora"
-                            class=" w-full px-3 py-2 border border-gray-400 rounded-md placeholder-gray-600 text-center">
+                            class="w-full px-3 py-2 border border-gray-400 rounded-md placeholder-gray-600 text-center">
                         @error('name_product')
                         <span class="block text-sm font-medium text-red-500">{{ $message }}</span>
                         @enderror
                     </div>
-                    <div class="col-span-3">
+                    <div class="lg:col-span-3">
                         <label for="description" class="block text-base text-black mb-2 font-bold">Descripcion:</label>
                         <input wire:model="description" name="description" id="description" type="text" placeholder="Ej. El producto es de color..."
                             class=" w-full px-3 py-2  border border-gray-400 rounded-md placeholder-gray-600 text-center">
@@ -64,11 +64,12 @@
                     </div>
 
                     <button wire:click="register"
-                        class=" w-full bg-green-500 hover:bg-green-700 text-white font-bold cursor-pointer py-2 rounded-md shadow-2xl">
+                        class="mt-5 md:mt-0 w-full bg-green-500 hover:bg-green-700 text-white font-bold cursor-pointer py-2 rounded-md shadow-2xl">
                         Registrar
                     </button>
                 </div>
             </div>
         </div>
     </div>
+    @include('landinpage.footer')
 </div>

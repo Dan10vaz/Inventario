@@ -2,12 +2,14 @@
     {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
     @include('landinpage.nav')
     <div class="bg-green-50 h-screen">
-        <div class="pt-10 lg:pt-5 mx-auto ">
-            <div class="grid grid-cols-1 lg:grid-cols-3 mt-5">
-                <div class="text-center text-green-700 font-bold text-4xl mt-44">
+        <div class="text-center text-green-700 font-bold text-4xl pt-5">
                     <h1>Registrate y comienza a dar soluciones a tu negocio</h1>
                 </div>
-                <div class="bg-white py-8 px-4 shadow-xl rounded-lg mt-10 lg:mt-0 m-5 md:m-40 lg:m-0">
+        <div class="pt-10 lg:pt-5 mx-auto ">
+            <div class="grid grid-cols-1 lg:grid-cols-3 mt-5">
+                <div>
+                </div>
+                <div class="bg-white py-8 px-4 shadow-xl rounded-lg lg:mt-0 m-5 md:m-40 lg:m-0">
                     <div>
                         <label for="name" class="block text-base text-black mb-2 font-bold">Nombre:</label>
                         <input wire:model="name" name="name" id="name" type="text" placeholder="Ej. Daniel Vazquez"
@@ -60,8 +62,7 @@
                         Crear Cuenta
                     </button>
                 </div>
-                <div class="text-center text-green-700 font-bold text-4xl mt-44">
-                    <h1>Es momento de que intentes algo diferente</h1>
+                <div>
                 </div>
             </div>
         </div>

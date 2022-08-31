@@ -1,10 +1,13 @@
 <div>
     @include('landinpage.nav')
     <div class="bg-green-50 h-screen">
-        <div class="pt-10 lg:pt-5 mx-auto ">
+        <div class="text-center text-green-700 font-bold text-4xl pt-5">
+                    <h1>Inicia Sesion</h1>
+                </div>
+        <div class=" lg:pt-5 mx-auto ">
             <div class="grid grid-cols-1 lg:grid-cols-3 mt-5">
-                <div class="text-center text-green-700 font-bold text-4xl mt-44">
-                    <h1>Inicia Sesion y ve la actividad de tu negocio</h1>
+                <div>
+
                 </div>
                 <div class="bg-white py-8 px-4 shadow-xl rounded-lg mt-10 lg:mt-0 m-5 md:m-40 lg:m-0">
                     @if(session('message'))
@@ -34,8 +37,8 @@
                         Inicia Sesion
                     </button>
                 </div>
-                <div class="text-center text-green-700 font-bold text-4xl mt-44">
-                    <h1>Tus activos al alcance de tu mano</h1>
+                <div>
+
                 </div>
             </div>
         </div>

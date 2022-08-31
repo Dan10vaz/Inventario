@@ -3,11 +3,13 @@
 namespace App\Http\Livewire\Auth;
 
 use App\Models\User;
+use App\Models\UsersRegister;
 use Livewire\Component;
 
 class Register extends Component
 {
     public $name, $last_name, $second_last_name, $email, $password, $error;
+    public $access = 1;
 
     protected $rules = [
         'name' => 'required|max:30|min:3',
@@ -31,6 +33,13 @@ class Register extends Component
         ]);
         $user->assignRole('capturer');
 
+        $userRegister = UsersRegister::create([
+            'name' => $this->name,
+            'last_name' => $this->last_name,
+            'second_last_name' => $this->second_last_name,
+            'access' => $this->access,
+        ]);
+
         auth()->attempt([
             'email' => $this->email,
             'password' => $this->password,
@@ -46,6 +55,7 @@ class Register extends Component
 
         return redirect()->route('capturer');
     }
+
     public function render()
     {
         return view('livewire.auth.register')->layout('livewire.layouts.base');

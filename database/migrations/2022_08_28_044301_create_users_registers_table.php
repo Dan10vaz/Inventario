@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('last_name');
             $table->string('second_last_name');
-            $table->integer('access');
             $table->timestamps();
         });
     }

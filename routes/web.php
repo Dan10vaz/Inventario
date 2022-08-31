@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', IndexComponent::class)->name('index');
 
-Route::get('/login', Login::class)->name('login');
+Route::get('/login/{id}', Login::class)->name('login');
 
 Route::get('/register-user', Register::class)->name('register');
 

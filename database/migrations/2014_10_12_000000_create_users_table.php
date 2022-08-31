@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('second_last_name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->integer('access')->default(1);
             $table->timestamps();
         });
     }

@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class Login extends Component
 {
-    public $email, $password;
+    public $email, $password, $access;
 
     protected $rules = [
         'email' => 'required|email',
@@ -28,10 +28,11 @@ class Login extends Component
         if (auth()->attempt([
             'email' => $this->email,
             'password' => $this->password,
+            'access' => 1,
         ])) {
             return redirect(route('capturer'));
         } else {
-            return back()->with('message', 'Credenciales Incorrectas');
+            return back()->with('message', 'Credenciales Incorrectas o tu acceso ha sido restringido');
         }
     }
 

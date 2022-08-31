@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\UsersRegister;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -24,7 +25,11 @@ class UserSeeder extends Seeder
             'password' => bcrypt('123456'),
         ]);
         $fanny->assignRole('admin');
-
+        UsersRegister::create([
+            'name' => 'Estefanny',
+            'last_name' => 'Garcia',
+            'second_last_name' => 'Ruiz',
+        ]);
         $danny = User::create([
             'name' => 'Daniel Cristopher',
             'last_name' => 'Vazquez',
@@ -33,5 +38,10 @@ class UserSeeder extends Seeder
             'password' => bcrypt('123456'),
         ]);
         $danny->assignRole('capturer');
+        UsersRegister::create([
+            'name' => 'Daniel Cristopher',
+            'last_name' => 'Vazquez',
+            'second_last_name' => 'Ayala',
+        ]);
     }
 }

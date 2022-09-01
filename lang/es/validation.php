@@ -158,6 +158,15 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name_product' => 'nombre del producto',
+        'description' => 'descripcion',
+        'category' => 'categoria',
+        'office' => 'office',
+        'price' => 'precio',
+        'date_purchase' => 'fecha de compra',
+        'state' => 'estado',
+        'comment' => 'comentario'
+    ],
 
 ];

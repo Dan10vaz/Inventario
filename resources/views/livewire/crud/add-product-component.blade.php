@@ -1,13 +1,23 @@
 <div>
     @include('landinpage.nav')
     <div class="bg-green-50 h-screen">
-        <h1 class="text-center font-bold text-2xl pt-5">Bienvenido al sistema: {{auth()->user()->name}} {{auth()->user()->last_name}}</h1>
+        <h1 class="text-center font-bold text-2xl pt-5">Bienvenido al sistema: {{auth()->user()->name}}
+            {{auth()->user()->last_name}}</h1>
         <div class="pt-10 lg:pt-5 mx-auto ">
             <div class="px-10">
-                <div class="bg-white py-8 px-4 shadow-xl rounded-lg mt-10 lg:mt-0 m-5 md:m-10 lg:m-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-5">
+                <div class="text-center items-center">
+                    @if(session('message'))
+                    <p class="bg-green-500 text-white my-2 rounded-lg text-base p-2 text-center w-1/4">
+                        {{session('message')}}</p>
+                    @endif
+                </div>
+                <div
+                    class="bg-white py-8 px-4 shadow-xl rounded-lg mt-10 lg:mt-0 m-5 md:m-10 lg:m-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-5">
                     <div class="col-start-1 col-span-1">
-                        <label for="name_product" class="block text-base text-black mb-2 font-bold">Nombre del Producto:</label>
-                        <input wire:model="name_product" name="name_product" id="name_product" type="text" placeholder="Ej. Computadora"
+                        <label for="name_product" class="block text-base text-black mb-2 font-bold">Nombre del
+                            Producto:</label>
+                        <input wire:model="name_product" name="name_product" id="name_product" type="text"
+                            placeholder="Ej. Computadora"
                             class="w-full px-3 py-2 border border-gray-400 rounded-md placeholder-gray-600 text-center">
                         @error('name_product')
                         <span class="block text-sm font-medium text-red-500">{{ $message }}</span>
@@ -15,7 +25,8 @@
                     </div>
                     <div class="lg:col-span-3">
                         <label for="description" class="block text-base text-black mb-2 font-bold">Descripcion:</label>
-                        <input wire:model="description" name="description" id="description" type="text" placeholder="Ej. El producto es de color..."
+                        <input wire:model="description" name="description" id="description" type="text"
+                            placeholder="Ej. El producto es de color..."
                             class=" w-full px-3 py-2  border border-gray-400 rounded-md placeholder-gray-600 text-center">
                         @error('description')
                         <span class="block text-sm font-medium text-red-500">{{ $message }}</span>
@@ -23,10 +34,12 @@
                     </div>
                     <div>
                         <label for="category" class="block mb-2 text-base text-black font-bold">Categoria</label>
-                        <select class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-green-50 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" name="category" wire:model="category" id="category">
+                        <select
+                            class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-green-50 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            name="category" wire:model="category" id="category">
                             <option value="" selected hidden>Selecciona opción</option>
                             @foreach ($categoryData as $category )
-                                <option class="text-center" value="{{ $category->name}}">{{$category->name}}</option>
+                            <option class="text-center" value="{{ $category->name}}">{{$category->name}}</option>
                             @endforeach
                         </select>
                         @error('category')
@@ -35,10 +48,12 @@
                     </div>
                     <div>
                         <label for="office" class="block mb-2 text-base text-black font-bold">Sucursal:</label>
-                        <select class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-green-50 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" name="office" wire:model="office" id="office">
+                        <select
+                            class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-green-50 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            name="office" wire:model="office" id="office">
                             <option value="" selected hidden>Selecciona opción</option>
                             @foreach ($officeData as $office )
-                                <option class="text-center" value="{{ $office->name}}">{{$office->name}}</option>
+                            <option class="text-center" value="{{ $office->name}}">{{$office->name}}</option>
                             @endforeach
                         </select>
                         @error('office')
@@ -55,8 +70,10 @@
                         @enderror
                     </div>
                     <div>
-                        <label for="date_purchase" class="block text-base text-black mb-2 font-bold">Fecha de compra:</label>
-                        <input wire:model="date_purchase" name="date_purchase" id="date_purchase" type="date" placeholder="Tu contrasena"
+                        <label for="date_purchase" class="block text-base text-black mb-2 font-bold">Fecha de
+                            compra:</label>
+                        <input wire:model="date_purchase" name="date_purchase" id="date_purchase" type="date"
+                            placeholder="Tu contrasena"
                             class=" w-full px-3 py-2 border border-gray-400 rounded-md placeholder-gray-600 text-center">
                         @error('date_purchase')
                         <span class="block text-sm font-medium text-red-500">{{ $message }}</span>

@@ -2,6 +2,11 @@
     @can('admin')
     @include('landinpage.nav')
     <h1 class="text-center font-bold text-2xl text-green-400 mt-5">Bandeja de productos</h1>
+    <div class="ml-5 text-center items-center">
+        @if(session('message'))
+        <p class="bg-green-500 text-white my-2 rounded-lg text-base p-2 text-center w-1/4">{{session('message')}}</p>
+        @endif
+    </div>
     <div class="overflow-x-auto relative shadow-md sm:rounded-lg px-5 mt-5">
         <table class="w-full text-sm text-left">
             <thead class="text-xs uppercase">
@@ -39,8 +44,10 @@
                         {{$product->office}}
                     </td>
                     <td class="py-4 px-2">
-                        <a href="{{route('edit',['id'=>$product->id])}}" class=" text-white font-bold bg-blue-500 hover:bg-blue-700 py-1 px-2 rounded-lg">Editar</a>
-                        {{-- <button class="text-white bg-blue-500 hover:bg-blue-700 py-1 px-2 rounded-lg">Editar</button> --}}
+                        <a href="{{route('edit',['id'=>$product->id])}}"
+                            class=" text-white font-bold bg-blue-500 hover:bg-blue-700 py-1 px-2 rounded-lg">Editar</a>
+                        {{-- <button
+                            class="text-white bg-blue-500 hover:bg-blue-700 py-1 px-2 rounded-lg">Editar</button> --}}
                         <button wire:click="delete({{$product->id}})"
                             class="text-white bg-red-500 hover:bg-red-700 py-1 px-2 ml-2 mt-5 md:mt-0 rounded-lg ">Eliminar</button>
                     </td>
@@ -48,8 +55,8 @@
                 @endforeach
             </tbody>
         </table>
+        {{$products->links()}}
     </div>
     @endcan
     @include('landinpage.footer')
 </div>
-

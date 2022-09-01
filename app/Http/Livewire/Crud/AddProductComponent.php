@@ -43,6 +43,7 @@ class AddProductComponent extends Component
             'price',
             'date_purchase',
         ]);
+        return back()->with('message', 'El producto se ha creado correctamente');
     }
 
     public function render()

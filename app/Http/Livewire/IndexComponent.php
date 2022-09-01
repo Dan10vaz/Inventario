@@ -10,4 +10,10 @@ class IndexComponent extends Component
     {
         return view('livewire.index-component')->layout('livewire.layouts.base');
     }
+
+    public function logout()
+    {
+        auth()->logout();
+        return redirect()->route('login');
+    }
 }

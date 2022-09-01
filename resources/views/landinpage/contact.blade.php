@@ -6,6 +6,7 @@
     <div class="bg-white m-5 col-st w-full md:w-1/2 md:max-w-full mx-auto">
         <div class="p-6 border border-gray-300 sm:rounded-md">
                 <label class="block mb-6">
+
                     <span class="text-gray-700">Tu nombre</span>
                     <input type="text" name="name" class="
             block
